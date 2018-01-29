@@ -25,8 +25,10 @@ public class RPC {
 
         String computerChoice = aiChoice(); //sets ai choice
 
-        System.out.println(userChoice);
-        System.out.println(computerChoice);
+        System.out.println("User chose: " + userChoice);
+        System.out.println("Computer chose: " + computerChoice);
+        String winner = chooseWinner(userChoice, computerChoice);
+        System.out.println(winner);
 
     }
 
@@ -51,7 +53,38 @@ public class RPC {
         return choice;
     }
 
+    private static String chooseWinner(String userChoice, String computerChoice) {
 
+        if (userChoice.equals(computerChoice)) {
+            return "It's a tie!";
+        }
+
+        else if (userChoice.equals("paper") && computerChoice.equals("rock")) {
+            return "You win!";
+        }
+
+        else if (userChoice.equals("paper") && computerChoice.equals("scissors")) {
+            return "Computer wins!";
+        }
+
+        else if (userChoice.equals("rock") && computerChoice.equals("paper")) {
+            return "Computer wins!";
+        }
+
+        else if (userChoice.equals("rock") && computerChoice.equals("scissors")) {
+            return "You win!";
+        }
+
+        else if (userChoice.equals("scissors") && computerChoice.equals("paper")) {
+            return "You win!";
+        }
+
+        else if (userChoice.equals("scissors") && computerChoice.equals("rock")) {
+            return "Computer wins!";
+        }
+
+        return "Didn't select a winner ):";
+    }
 
 
 
