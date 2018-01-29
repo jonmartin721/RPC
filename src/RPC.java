@@ -11,9 +11,22 @@ public class RPC {
         System.out.println("Rock Paper Scissors");
         System.out.println("\nType rock, paper, or scissors: ");
 
-        String userChoice;
-        userChoice = keyboard.next();
-        String computerChoice = aiChoice();
+        //output initially to the user so they can choose an option
+        System.out.println("\nChoose an option by typing the word:\nrock\npaper\nscissors\n");
+        String userChoice = keyboard.next(); //takes user choice
+
+        //tests the user's input and displays an invalid message if it doesn't pass, until they enter something valid
+        while (!userChoice.equals("rock") && !userChoice.equals("paper") && !userChoice.equals("scissors"))
+        {
+            System.out.println("Invalid option:");
+            System.out.println("\nChoose an option by typing the word:\nrock\npaper\nscissors\n");
+            userChoice = keyboard.next(); //takes user choice
+        }
+
+        String computerChoice = aiChoice(); //sets ai choice
+
+        System.out.println(userChoice);
+        System.out.println(computerChoice);
 
     }
 
