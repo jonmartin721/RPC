@@ -14,6 +14,10 @@ public class RPC {
         String userChoice;
         userChoice = keyboard.next();
         String computerChoice = aiChoice();
+        System.out.println("User: " + userChoice);
+        System.out.println("Computer: " + computerChoice);
+        String answer = result(userChoice, computerChoice);
+        System.out.println(answer);
 
     }
 
@@ -38,6 +42,24 @@ public class RPC {
         return choice;
     }
 
+    private static String result(String userChoice, String computerChoice){
+
+        String response = null;
+
+        if(userChoice == computerChoice){
+            response = "it is a draw";
+        } else if ((userChoice == "rock") && (computerChoice != "rock")){
+            response = "user wins";
+        } else if ((computerChoice == "rock") && (userChoice != "rock")){
+            response = "computer wins";
+        } else if ((userChoice == "scissors") && (computerChoice == "paper")){
+            response = "user wins";
+        } else if ((userChoice == "paper") && (computerChoice == "scissors")){
+            response = "computer wins";
+        }
+
+        return response;
+    }
 
 
 
